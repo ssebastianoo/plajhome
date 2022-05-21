@@ -1,110 +1,94 @@
-<script>
-	import preview from '$lib/assets/VFL06306.jpg';
-	const imgs = import.meta.glob('/src/lib/assets/*.{png,svg,jpg,jpeg}');
-
-	console.log(Object.keys(imgs));
-</script>
-
 <main>
-	<div class="top">
-		<div class="description">
-			<p><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</em></p>
+	<div class="container">
+		<div class="left">
+			<div class="nav">
+				<a href="#about">about</a>
+				<a href="#prices">prices</a>
+				<a href="#contact">contact</a>
+			</div>
+			<h1 class="title">plajhouse</h1>
+			<p class="text">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel
+				sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam
+				eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!
+			</p>
+            <a href="#book" class="book-a">
+                <div class="book-btn">
+                    <i class="fa-brands fa-airbnb"></i>
+                    <span>Book</span>
+                </div>
+            </a>
 		</div>
-		<div class="title">
-			<h1>plaj@house</h1>
-		</div>
-		<div class="image">
-			<img src={preview} alt="Preview" />
-		</div>
-	</div>
-	<div class="images">
-		<div class="image">
-			<img src={Object.keys(imgs)[0]} alt="img" />
-			<p>asdasdLorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-		</div>
-		<div class="image">
-			<p>asdasdLorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-			<img src={Object.keys(imgs)[1]} alt="img" />
-		</div>
-		<div class="image">
-			<img src={Object.keys(imgs)[2]} alt="img" />
-			<p>asdasdLorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-		</div>
-		<div class="image">
-			<p>asdasdLorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-			<img src={Object.keys(imgs)[3]} alt="img" />
+		<div class="right">
+			<img src="./san marco.png" alt="San Marco" />
 		</div>
 	</div>
 </main>
 
 <style lang="scss">
-	.top {
-		min-height: 100vh;
-		position: relative;
-
-		.image {
-			min-height: 100vh;
-			display: flex;
-			align-items: flex-end;
-			justify-content: center;
-			
-			img {
-				z-index: -1;
-				position: absolute;
-				height: 50vh;
-				width: 100vw;
-				object-fit: cover;
-			}
-		}
-
-		.description {
-			min-height: 50vh;
-			position: absolute;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			z-index: 2;
-			width: 100%;
-		}
-
-		.title {
-			position: absolute;
-			min-height: 100vh;
-			width: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-
-			h1 {
-				text-align: center;
-				font-size: 50px;
-				letter-spacing: 20px;
-				color: black;
-				text-shadow: 2px 2px white;
-				user-select: none;
-			}
-		}
-	}
-
-	.images {
+	.container {
 		display: flex;
-		flex-direction: column;
-		margin-bottom: 100px;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        width: 100%;
+        min-height: 100vh;
 
-		.image {
-			display: flex;
-			align-items: center;
-			justify-content: space-around;
-			margin-top: 100px;
+		.left {
+            width: 466px;
+            display: flex;
+            flex-direction: column;
+            gap: 100px;
 
-			img {
-				width: 400px;
+			.title {
+				font-size: 100px;
+                margin: 0;
 			}
+
+            .text {
+                margin: 0;
+            }
+
+            .nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                a {
+                    color: unset;
+                    text-decoration: none;
+                    font-size: 20px;
+                }
+            }
+
+            .book-a {
+                text-decoration: none;
+                color: unset;
+
+                .book-btn {
+                    width: 150px;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    color: white;
+                    background-color: #ff5a5f;
+                    gap: 10px;
+                    font-size: 40px;
+                    padding: 10px;
+                    border-radius: 10px;
+                    box-shadow: 4px 4px 10px RGBA(0,0,0,0.5);
+                    transition: scale .3s ease-in-out;
+
+                    &:hover {
+                        scale: 1.1;
+                    }
+                }
+            }
 		}
 
-		.image:nth-child(even) {
+		.right {
 			img {
-				float: right;
+				height: 80vh;
 			}
 		}
 	}

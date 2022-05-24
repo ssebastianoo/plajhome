@@ -1,30 +1,21 @@
 <div class="nav">
-	<div class="nav-item">
-		<a href="./">home</a>
-	</div>
-	<div class="nav-item">
-		<a href="./about">about</a>
-	</div>
-	<div class="nav-item"><a href="#book">book</a></div>
+	<a href="/">home</a>
+	<a href="/about">about</a>
+	<a href="/prices">prices</a>
+	<a href="/contact">contact</a>
 </div>
 
 <style lang="scss">
 	.nav {
 		display: flex;
-        align-items: center;
-        justify-content: space-around;
-        position: fixed;
-        z-index: 999;
-        width: 100%;
-        background-color: RGBA(255,255,255,0.5);;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 10px;
 
-		.nav-item {
-            padding: 20px;
-
-            a {
-                text-decoration: none;
-                color: unset;
-            }
+		a {
+			color: unset;
+			text-decoration: none;
+			font-size: 20px;
 		}
 	}
 </style>

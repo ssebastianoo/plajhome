@@ -1,0 +1,22 @@
+<script>
+	import Main from '$lib/Main.svelte';
+</script>
+
+<Main
+	title="about"
+	image="./venice/IMG_0228-2.jpg"
+	map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.0969231809718!2d12.241539316253913!3d45.48799293987526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477eb4167409ae9b%3A0xeee001bfc77b5292!2sVia%20Leonida%20Bissolati%2C%206%2C%2030172%20Venezia%20VE!5e0!3m2!1sit!2sit!4v1653422934269!5m2!1sit!2sit"
+	>Rooms: <b>2</b>
+	<br />
+	Beds: <b>3</b>
+	<br />
+	Sofa Beds: <b>1</b>
+	<br />
+	Kids Beds: <b>1</b>
+	<br /><br />
+	Bathroom 1: <b>Shower</b>
+	<br />
+	Bathroom 2: <b>Double sink and bath</b>
+	<br /><br />
+	Kitchen: <b>10 seats on modern and minimalist design</b></Main
+>

@@ -7,13 +7,17 @@
 </script>
 
 <div class="main">
-	<div class="horizontal">
-		<img src="./san marco horizontal.png" alt="San Marco" />
-	</div>
 	<div class="left">
 		<div class="title">
 			<Nav />
-			<h1 class="title">{title}</h1>
+			<h1 class="title">
+				{#each title as t}
+					<!-- i hate this -->
+					<span>
+						{t}
+					</span>
+				{/each}
+			</h1>
 		</div>
 		<div class="text">
 			<p><slot /></p>
@@ -22,8 +26,6 @@
 					<iframe
 						title="Google Maps"
 						src={map}
-						width="100%"
-						height="200"
 						style="border:0;"
 						allowfullscreen=""
 						loading="lazy"
@@ -55,20 +57,34 @@
 		}
 
 		.left {
-			width: 466px;
+			height: 65vh;
+			width: 40vw;
 			display: flex;
 			flex-direction: column;
-			gap: 100px;
+			justify-content: space-around;
 			margin: 20px 0;
 
 			.title {
 				font-size: 100px;
 				margin: 0;
+
+				h1 {
+					display: flex;
+					justify-content: space-between;
+				}
 			}
 
 			.text {
+				margin-bottom: 15px;
 				p {
 					margin-top: 0;
+				}
+
+				.map {
+					iframe {
+						width: 100%;
+						height: 8vh;
+					}
 				}
 			}
 
@@ -102,7 +118,7 @@
 				align-items: center;
 
 				img {
-					width: 500px;
+					height: 60vh;
 					border-radius: 18px;
 					box-shadow: 5px 5px 30px black;
 				}
@@ -110,11 +126,11 @@
 		}
 	}
 
-	@media screen and (max-width: 778px) {
+	@media screen and (max-width: 1140px) {
 		.main {
 			flex-direction: column;
 
-			.horizontal {
+			/* .horizontal {
 				display: block;
 				width: 100vw;
 				margin: 10px 0;
@@ -126,12 +142,14 @@
 				&:nth-child(even) {
 					transform: rotate(180deg);
 				}
-			}
+			} */
 
 			.left {
 				width: 373.433px;
+				height: 100vh;
 				justify-content: space-around;
 				gap: 50px;
+				margin: 0;
 
 				.title {
 					h1 {
@@ -146,8 +164,16 @@
 			}
 
 			.right {
-				display: none;
+				&:has(.right-san-marco) {
+					img {
+						transform: rotate(90deg);
+					}
+				}
 			}
+
+			/* .right {
+				display: none;
+			} */
 		}
 	}
 

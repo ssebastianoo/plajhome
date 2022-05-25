@@ -3,7 +3,7 @@
 		return {
 			props: {
 				message: error.message,
-				status // same as status: status
+				status: status.toString(), // same as status: status
 			}
 		};
 	}

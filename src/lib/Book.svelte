@@ -1,31 +1,35 @@
-<a href="#book" class="book-a">
-	<div class="book-btn">
-		<i class="fa-brands fa-airbnb" />
-		<span>Book</span>
-	</div>
-</a>
+<div class="book">
+	<a href="https://www.airbnb.it/" class="book-a">
+		<div class="book-btn">
+			<i class="fa-brands fa-airbnb" />
+			<span>Book</span>
+		</div>
+	</a>
+</div>
 
 <style lang="scss">
-	.book-a {
-		text-decoration: none;
-		color: unset;
+	.book {
+		.book-a {
+			text-decoration: none;
+			color: unset;
 
-		.book-btn {
-			width: 150px;
-			display: inline-flex;
-			align-items: center;
-			justify-content: space-around;
-			color: white;
-			background-color: #ff5a5f;
-			gap: 10px;
-			font-size: 40px;
-			padding: 10px;
-			border-radius: 10px;
-			box-shadow: 4px 4px 10px RGBA(0, 0, 0, 0.5);
-			transition: scale 0.3s ease-in-out;
+			.book-btn {
+				width: 150px;
+				display: inline-flex;
+				align-items: center;
+				justify-content: space-around;
+				color: white;
+				background-color: #ff5a5f;
+				gap: 10px;
+				font-size: 40px;
+				padding: 10px;
+				border-radius: 10px;
+				box-shadow: 4px 4px 10px RGBA(0, 0, 0, 0.5);
+				transition: scale 0.3s ease-in-out;
 
-			&:hover {
-				scale: 1.1;
+				&:hover {
+					scale: 1.1;
+				}
 			}
 		}
 	}

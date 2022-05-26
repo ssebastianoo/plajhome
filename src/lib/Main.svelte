@@ -34,6 +34,11 @@
 				</div>
 			{/if}
 		</div>
+		{#if image === './san marco.png'}
+			<img src="./san marco horizontal.png" alt="Cover" class="mobile-img san-marco" />
+		{:else}
+			<img src={image} alt="Cover" class="mobile-img" />
+		{/if}
 		<Book />
 	</div>
 	<div class={image === './san marco.png' ? 'right right-san-marco' : 'right'}>
@@ -57,7 +62,7 @@
 		}
 
 		.left {
-			height: 65vh;
+			min-height: 65vh;
 			width: 40vw;
 			display: flex;
 			flex-direction: column;
@@ -75,15 +80,19 @@
 			}
 
 			.text {
-				margin-bottom: 15px;
+				margin: 10px 0;
+
 				p {
-					margin-top: 0;
+					margin: 0;
 				}
 
 				.map {
+					margin-top: 10px;
 					iframe {
 						width: 100%;
 						height: 8vh;
+						border-radius: 5px;
+						box-shadow: 2px 2px 10px black;
 					}
 				}
 			}
@@ -99,26 +108,30 @@
 					font-size: 20px;
 				}
 			}
+
+			.mobile-img {
+				display: none;
+			}
+		}
+
+		.right-san-marco {
+			flex-direction: column;
+			justify-content: flex-end;
+
+			img {
+				height: 90vh;
+			}
 		}
 
 		.right {
-			height: 100vh;
+			min-height: 100vh;
 			display: flex;
-
-			&:has(.right-san-marco) {
-				flex-direction: column;
-				justify-content: flex-end;
-
-				img {
-					height: 90vh;
-				}
-			}
 
 			&:not(.right-san-marco) {
 				align-items: center;
 
 				img {
-					height: 60vh;
+					height: 67vh;
 					border-radius: 18px;
 					box-shadow: 5px 5px 30px black;
 				}
@@ -126,7 +139,7 @@
 		}
 	}
 
-	@media screen and (max-width: 1140px) {
+	@media screen and (max-width: 800px) {
 		.main {
 			flex-direction: column;
 
@@ -146,9 +159,8 @@
 
 			.left {
 				width: 373.433px;
-				height: 100vh;
+				min-height: 100vh;
 				justify-content: space-around;
-				gap: 50px;
 				margin: 0;
 
 				.title {
@@ -161,19 +173,36 @@
 				.text {
 					width: 100%;
 				}
+
+				.mobile-img {
+					display: block;
+					width: 100%;
+					height: 15vh;
+					object-fit: cover;
+					border-radius: 7px;
+					margin-bottom: 10px;
+
+					&:not(.san-marco) {
+						box-shadow: 5px 5px 30px black;
+					}
+				}
+
+				.san-marco {
+					object-position: right;
+				}
 			}
 
-			.right {
+			/* .right {
 				&:has(.right-san-marco) {
 					img {
 						transform: rotate(90deg);
 					}
 				}
-			}
-
-			/* .right {
-				display: none;
 			} */
+
+			.right {
+				display: none;
+			}
 		}
 	}
 

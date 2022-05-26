@@ -6,4 +6,4 @@
 <Main title="plajhome"
 	>Luxury Open Space 11th floor 180° Venice view. Enjoy your holiday in Venice, live your confort.</Main
 >
-<Images />
+<!-- <Images /> -->

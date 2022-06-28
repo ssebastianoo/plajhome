@@ -1,35 +1,20 @@
 <script>
 	const images = [
-		'VFL06421.JPG',
-		'VFL06424.JPG',
-		'VFL06426.JPG',
-		'VFL06427.JPG',
-		'VFL06433.JPG',
-		'VFL06434.JPG',
-		'VFL06435.JPG',
-		'VFL06436.JPG',
-		'VFL06437.JPG',
-		'VFL06441.JPG',
-		'VFL06443.JPG',
-		'VFL06444.JPG',
-		'VFL06445.JPG',
-		'VFL06446.JPG',
-		'VFL06453.JPG',
-		'VFL06454.JPG',
-		'VFL06455.JPG',
-		'VFL06456.JPG',
-		'VFL06457.JPG',
-		'VFL06459.JPG',
-		'VFL06462.JPG',
-		'VFL06465.JPG',
-		'VFL06467.JPG',
-		'VFL06471.JPG',
-		'VFL06472.JPG',
-		'VFL06473.JPG',
-		'VFL06474.JPG',
-		'VFL06475.JPG',
-		'VFL06476.JPG',
-		'VFL06482.JPG'
+		'VFL06437-min.JPG',
+		'VFL06441-min.JPG',
+		'VFL06443-min.JPG',
+		'VFL06444-min.JPG',
+		'VFL06457-min.JPG',
+		'VFL06459-min.JPG',
+		'VFL06462-min.JPG',
+		'VFL06465-min.JPG',
+		'VFL06467-min.JPG',
+		'VFL06471-min.JPG',
+		'VFL06472-min.JPG',
+		'VFL06473-min.JPG',
+		'VFL06474-min.JPG',
+		'VFL06475-min.JPG',
+		'VFL06476-min.JPG'
 	];
 </script>
 
@@ -44,11 +29,18 @@
 <style lang="scss">
 	.images {
 		margin-top: 200px;
+		width: 94vw;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 0 3vw;
 	}
 	.image {
 		display: flex;
 		align-items: center;
 		margin: 100px;
+		width: 100%;
+		max-width: 1000px;
 
 		img {
 			width: 400px;

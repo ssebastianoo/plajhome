@@ -1,5 +1,8 @@
 <script>
+	import Loading from './Loading.svelte';
+
 	let index = 0;
+	let image, spinner;
 	const images = [
 		'VFL06437-min.webp',
 		'VFL06441-min.webp',
@@ -17,29 +20,79 @@
 		'VFL06475-min.webp',
 		'VFL06476-min.webp'
 	];
+
+	const changeImage = (action) => {
+		switch (action) {
+			case 'prev':
+				index = index === 0 ? images.length - 1 : index - 1;
+				break;
+			case 'next':
+				index = index === images.length - 1 ? 0 : index + 1;
+				break;
+			default:
+				break;
+		}
+	};
+
+	const imageLoading = () => {
+		console.log('loading');
+		image.classList.add('hidden');
+		spinner.classList.remove('hidden');
+	}
+
+	const imageLoaded = () => {
+		console.log('loaded');
+		image.classList.remove('hidden');
+		spinner.classList.add('hidden');
+	};
 </script>
 
 <div class="images">
-	<img src={'./house/' + images[index]} alt="Apartment" />
+	<div class="spinner hidden" bind:this={spinner}>
+		<Loading />
+	</div>
+	<img
+		on:loadstart={imageLoading}
+		on:load={imageLoaded}
+		bind:this={image}
+		src={'./house/' + images[index]}
+		alt="Apartment"
+	/>
 	<div class="controls">
-		<button class="prev" on:click={() => (index = (index - 1 + images.length) % images.length)}>
+		<button
+			class="prev"
+			on:click={() => {
+				changeImage('prev');
+			}}
+		>
 			<i class="fas fa-chevron-left" />
 		</button>
 		<p>{index + 1} / {images.length}</p>
 
-		<button class="next" on:click={() => (index = (index + 1) % images.length)}>
+		<button
+			class="next"
+			on:click={() => {
+				changeImage('next');
+			}}
+		>
 			<i class="fas fa-chevron-right" />
 		</button>
 	</div>
 </div>
 
 <style lang="scss">
+	.hidden {
+		display: none !important;
+	}
+
 	.images {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: center;
-		height: 500px;
+		justify-content: space-between;
+		height: 300px;
+		margin-top: 40px;
+		margin-bottom: 80px;
 	}
 
 	img {
@@ -47,8 +100,14 @@
 		max-width: 400px;
 	}
 
+	.spinner {
+		height: 216.733px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
 	.controls {
-		margin-top: 40px;
 		display: flex;
 		gap: 50px;
 

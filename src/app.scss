@@ -1,3 +1,7 @@
+:root {
+	--spinner-color: #000000;
+}
+
 body,
 html {
 	margin: 0;
@@ -9,6 +13,10 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
+	:root {
+		--spinner-color: #ffffff;
+	}
+
 	body {
 		background-color: #18181a;
 		color: white;

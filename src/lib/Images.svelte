@@ -4,21 +4,23 @@
 	let index = 0;
 	let image, spinner;
 	const images = [
-		'VFL06437-min.webp',
-		'VFL06441-min.webp',
-		'VFL06443-min.webp',
-		'VFL06444-min.webp',
-		'VFL06457-min.webp',
-		'VFL06459-min.webp',
-		'VFL06462-min.webp',
-		'VFL06465-min.webp',
-		'VFL06467-min.webp',
-		'VFL06471-min.webp',
-		'VFL06472-min.webp',
-		'VFL06473-min.webp',
-		'VFL06474-min.webp',
-		'VFL06475-min.webp',
-		'VFL06476-min.webp'
+		'photo_2022-07-16_14-04-51.webp',
+		'photo_2022-07-16_14-05-07.webp',
+		'photo_2022-07-16_14-05-10.webp',
+		'photo_2022-07-16_14-05-13.webp',
+		'photo_2022-07-16_14-05-15.webp',
+		'photo_2022-07-16_14-05-18.webp',
+		'photo_2022-07-16_14-05-21.webp',
+		'photo_2022-07-16_14-05-23.webp',
+		'photo_2022-07-16_14-05-26.webp',
+		'photo_2022-07-16_14-05-28.webp',
+		'photo_2022-07-16_14-05-31.webp',
+		'photo_2022-07-16_14-05-34.webp',
+		'photo_2022-07-16_14-05-36.webp',
+		'photo_2022-07-16_14-05-39.webp',
+		'photo_2022-07-16_14-05-41.webp',
+		'photo_2022-07-16_14-05-43.webp',
+		'photo_2022-07-16_14-05-46.webp'
 	];
 
 	const changeImage = (action) => {
@@ -35,13 +37,11 @@
 	};
 
 	const imageLoading = () => {
-		console.log('loading');
 		image.classList.add('hidden');
 		spinner.classList.remove('hidden');
-	}
+	};
 
 	const imageLoaded = () => {
-		console.log('loaded');
 		image.classList.remove('hidden');
 		spinner.classList.add('hidden');
 	};

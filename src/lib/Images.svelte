@@ -4,11 +4,6 @@
 	let index = 0;
 	let image, spinner;
 	const images = [
-		'photo_2022-07-16_14-04-51.webp',
-		'photo_2022-07-16_14-05-07.webp',
-		'photo_2022-07-16_14-05-10.webp',
-		'photo_2022-07-16_14-05-13.webp',
-		'photo_2022-07-16_14-05-15.webp',
 		'photo_2022-07-16_14-05-18.webp',
 		'photo_2022-07-16_14-05-21.webp',
 		'photo_2022-07-16_14-05-23.webp',
@@ -20,7 +15,12 @@
 		'photo_2022-07-16_14-05-39.webp',
 		'photo_2022-07-16_14-05-41.webp',
 		'photo_2022-07-16_14-05-43.webp',
-		'photo_2022-07-16_14-05-46.webp'
+		'photo_2022-07-16_14-05-46.webp',
+		'photo_2022-07-16_14-04-51.webp',
+		'photo_2022-07-16_14-05-07.webp',
+		'photo_2022-07-16_14-05-10.webp',
+		'photo_2022-07-16_14-05-13.webp',
+		'photo_2022-07-16_14-05-15.webp'
 	];
 
 	const changeImage = (action) => {

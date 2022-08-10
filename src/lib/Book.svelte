@@ -1,5 +1,5 @@
 <div class="book">
-	<a href="https://airbnb.com/h/plajhome" class="book-a">
+	<a href="https://www.airbnb.com/rooms/674325208281769889" class="book-a">
 		<div class="book-btn">
 			<i class="fa-brands fa-airbnb" />
 			<span>Book</span>

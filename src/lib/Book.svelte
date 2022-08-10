@@ -1,7 +1,7 @@
 <div class="book">
-	<a href="https://www.airbnb.com/rooms/674325208281769889" class="book-a">
+	<a href="https://home.tg/go/srbuefaof" class="book-a">
 		<div class="book-btn">
-			<i class="fa-brands fa-airbnb" />
+			<i class="fa-solid fa-right-to-bracket" />
 			<span>Book</span>
 		</div>
 	</a>

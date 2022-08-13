@@ -8,8 +8,16 @@ html {
 	padding: 0;
 }
 
+@keyframes unoverflow {
+	100% {
+		overflow: unset;
+	}
+}
+
 body {
 	font-family: Arial, Helvetica, sans-serif;
+	overflow: hidden;
+	animation: unoverflow .2s linear 2.9s forwards;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,0 +1,258 @@
+---
+import '../styles/global.scss';
+import Nav from "../components/Nav.astro";
+import Book from "../components/Book.astro";
+
+export interface Props {
+    title: string;
+    map?: string;
+    image?: string;
+}
+
+const { title, map, image = "./san marco.png" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="generator" content={Astro.generator} />
+        <meta charset="utf-8" />
+		<link rel="icon" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script src="https://kit.fontawesome.com/2cd6389f66.js" crossorigin="anonymous"></script>
+		<title>PlajHome</title>
+		<meta name="robots" content="index, follow">
+		<meta name="googlebot" content="index, follow">
+		<meta name="description" content="Luxury Open Space 11th floor 180° Venice view. Enjoy your holiday in Venice, live your confort.">
+		<meta name="theme-color" content="#7a8f84">
+		<meta name="author" content="ssebastianoo">
+		<meta name="keywords" content="plajhome, mestre, venezia, appartamento mestre, airbnb, plaj home, mestre corso del popolo, venice apartment, appartamento venezia, venice house, rent house in venice, venice booking, venice, casa venezia, venice house, venice home, airbnb venice, airbnb venezia, airbnb mestre">
+		<meta property="og:title" content="plajhome" />
+		<meta property="og:description" content="Luxury Open Space 11th floor 180° Venice view. Enjoy your holiday in Venice, live your confort." />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://plajhome.com" />
+		<meta property="og:image" content="https://plajhome.com/favicon.png" />
+    </head>
+    <body>
+        <div class="main">
+            <div class="left">
+                <div class="title">
+                    <Nav />
+                    <h1 class="title">
+                        {title.split("").map((t) => <span>{t}</span>)}
+                    </h1>
+                </div>
+                <div class="text">
+                    <p><slot /></p>
+                    {
+                        map ? (
+                            <div class="map">
+                                <iframe
+                                    title="Google Maps"
+                                    src={map}
+                                    style="border:0;"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                />
+                            </div>
+                        ) : null
+                    }
+                </div>
+                {
+                    image === "./san marco.png" ? (
+                        <img
+                            src="./san marco horizontal.png"
+                            alt="Cover"
+                            class="mobile-img san-marco"
+                        />
+                    ) : (
+                        <img src={image} alt="Cover" class="mobile-img" />
+                    )
+                }
+                <Book />
+            </div>
+            <div
+                class={image === "./san marco.png"
+                    ? "right right-san-marco"
+                    : "right"}
+            >
+                <img src={image} alt="Cover" />
+            </div>
+            <div class="horizontal">
+                <img src="./san marco horizontal.png" alt="San Marco" />
+            </div>
+        </div>
+        <style is:global lang="scss">
+            .main {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                width: 100%;
+                min-height: 100vh;
+
+                .horizontal {
+                    display: none;
+                }
+
+                .left {
+                    min-height: 65vh;
+                    width: 40vw;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    margin: 20px 0;
+
+                    .title {
+                        font-size: 100px;
+                        margin: 0;
+
+                        h1 {
+                            display: flex;
+                            justify-content: space-between;
+                        }
+                    }
+
+                    .text {
+                        margin: 10px 0;
+
+                        p {
+                            margin: 0;
+                        }
+
+                        .map {
+                            margin-top: 10px;
+                            iframe {
+                                width: 100%;
+                                height: 8vh;
+                                border-radius: 5px;
+                                box-shadow: 2px 2px 10px black;
+                            }
+                        }
+                    }
+
+                    .nav {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        a {
+                            color: unset;
+                            text-decoration: none;
+                            font-size: 20px;
+                        }
+                    }
+
+                    .mobile-img {
+                        display: none;
+                    }
+                }
+
+                .right-san-marco {
+                    flex-direction: column;
+                    justify-content: flex-end;
+
+                    img {
+                        height: 90vh;
+                    }
+                }
+
+                .right {
+                    min-height: 100vh;
+                    display: flex;
+
+                    &:not(.right-san-marco) {
+                        align-items: center;
+
+                        img {
+                            height: 67vh;
+                            border-radius: 18px;
+                            box-shadow: 5px 5px 30px black;
+                        }
+                    }
+                }
+            }
+
+            @media screen and (max-width: 750px) {
+                .main {
+                    flex-direction: column;
+
+                    /* .horizontal {
+				display: block;
+				width: 100vw;
+				margin: 10px 0;
+
+				img {
+					width: 90%;
+				}
+
+				&:nth-child(even) {
+					transform: rotate(180deg);
+				}
+			} */
+
+                    .left {
+                        width: 373.433px;
+                        min-height: 100vh;
+                        justify-content: space-around;
+                        margin: 0;
+
+                        .title {
+                            h1 {
+                                font-size: 80px;
+                                text-align: center;
+                            }
+                        }
+
+                        .text {
+                            width: 100%;
+                        }
+
+                        .mobile-img {
+                            display: block;
+                            width: 100%;
+                            height: 15vh;
+                            object-fit: cover;
+                            border-radius: 7px;
+                            margin-bottom: 10px;
+
+                            &:not(.san-marco) {
+                                box-shadow: 5px 5px 30px black;
+                            }
+                        }
+
+                        .san-marco {
+                            object-position: right;
+                        }
+                    }
+
+                    /* .right {
+				&:has(.right-san-marco) {
+					img {
+						transform: rotate(90deg);
+					}
+				}
+			} */
+
+                    .right {
+                        display: none;
+                    }
+                }
+            }
+
+            @media screen and (max-width: 400px) {
+                .main {
+                    .left {
+                        width: 300px;
+
+                        .title {
+                            h1 {
+                                font-size: 65px;
+                            }
+                        }
+                    }
+                }
+            }
+        </style>
+    </body>
+</html>

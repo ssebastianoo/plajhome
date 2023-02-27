@@ -1,0 +1,90 @@
+:root {
+  --gray: #394a51;
+  --green: #7fa99b;
+  --yellow: #fbf2d5;
+  --orange: #fdc57b;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("/assets/Lora-Regular.ttf");
+}
+body {
+  background: linear-gradient(145deg, var(--gray), var(--green));
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--yellow);
+  font-family: "Lora", serif;
+}
+
+header {
+  padding: 20px;
+  position: fixed;
+  width: calc(100% - 40px);
+  top: 0;
+  left: 0;
+}
+header ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header ul a {
+  color: unset;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+header ul a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  padding: 20px;
+}
+
+.full {
+  min-height: calc(100vh - 40px);
+}
+
+section:nth-child(1) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section:nth-child(1) h1 {
+  margin: 0;
+  font-size: 4rem;
+}
+
+section:nth-child(2) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+section:nth-child(2) .scroll-texts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+  overflow: hidden;
+}
+section:nth-child(2) p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+section:nth-child(2) .right-text {
+  text-align: right;
+}
+section:nth-child(2) img {
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+}/*# sourceMappingURL=style.css.map */

@@ -2,7 +2,6 @@ const scrollLeft = document.getElementById("scroll-left");
 const scrollRight = document.getElementById("scroll-right");
 const lines = document.getElementsByClassName("line");
 const title = document.getElementById("title");
-const book = document.getElementById("book");
 
 function setHeight() {
     document.documentElement.style.setProperty(
@@ -15,43 +14,42 @@ document.addEventListener("DOMContentLoaded", setHeight);
 window.addEventListener("resize", setHeight);
 
 document.addEventListener("scroll", function () {
-    const scrolled = document.documentElement.scrollTop;
+    const root = document.documentElement;
+    const scrolled = root.scrollTop;
     // scrolled : height*3 = x : 4
 
-    book.style.fontSize = `${
-        (scrolled / (window.innerHeight * 3 - window.innerHeight)) * 4
-    }em`;
+    title.style.opacity = 1 - scrolled / (window.innerHeight / 2);
+    if (scrolled < window.innerHeight / 2 - 39) {
+        // x : 100 = scroll : h/2
 
-    if (scrolled < window.innerHeight - 39) {
-        title.style.opacity = 1 - scrolled / (window.innerHeight / 2);
+        // 100 : x = scroll : h/2
         scrollLeft.style.transform = `translateX(${
-            window.innerHeight - 40 - scrolled
+            window.innerHeight / 2 - 40 - scrolled
         }px)`;
 
         scrollRight.style.transform = `translateX(${
-            0 - window.innerHeight + 40 + scrolled
+            0 - window.innerHeight / 2 + 40 + scrolled
         }px)`;
 
-        scrollLeft.style.opacity = scrolled / 760;
-        scrollRight.style.opacity = scrolled / 760;
+        // scrollLeft.style.opacity = scrolled / 760;
+        // scrollRight.style.opacity = scrolled / 760;
     }
 
-    if (scrolled > window.innerHeight && scrolled < window.innerHeight * 2) {
-        console.log("a");
-        // *1 = 0
-        // *2 = 100
-        // scrolled : window.innerHeight = x : 100
-        // 0 : 800 = 0 : 100
-        // 800 : 800 = 100 : 100
+    if (
+        // (100 * scrolled) / root.scrollTopMax > 15.4 &&
+        // scrolled < window.innerHeight * 3
+        true
+    ) {
+        // 15 -> 0
+        // 100 -> 1
 
-        // x = (scrolled / window.innerHeight) * 100 - 100
         document.documentElement.style.setProperty(
             "--scroll-odd",
-            `${(scrolled / window.innerHeight) * 100 - 100}%`
+            `${(scrolled / root.scrollTopMax) * 100}%`
         );
         document.documentElement.style.setProperty(
             "--scroll-even",
-            `-${(scrolled / window.innerHeight) * 100 - 100}%`
+            `-${(scrolled / root.scrollTopMax) * 100 - 15}%`
         );
     }
 });

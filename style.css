@@ -133,13 +133,17 @@ section:nth-child(4) {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 40px 20px 20px;
+  padding: 20px;
 }
 section:nth-child(4) .about {
   display: flex;
   flex-direction: column;
   gap: 20px;
   width: 80%;
+}
+section:nth-child(4) .about p {
+  font-size: 1.2rem;
+  max-width: 200px;
 }
 section:nth-child(4) .text {
   display: flex;
@@ -152,8 +156,46 @@ section:nth-child(4) .text:nth-child(even) p {
 }
 section:nth-child(4) p {
   margin: 0;
-  font-size: 1.2rem;
-  max-width: 200px;
+}
+section:nth-child(4) .button {
+  margin: 40px 0;
+  overflow: hidden;
+  position: relative;
+}
+section:nth-child(4) .hover {
+  background-color: var(--orange);
+  width: 187px;
+  height: 102px;
+  position: absolute;
+  z-index: -1;
+  transform: translateX(-100%);
+  top: 12px;
+  transition: transform 0.2s ease-in-out;
+}
+section:nth-child(4) a {
+  font-size: 5rem;
+  color: var(--yellow);
+}
+section:nth-child(4) a:hover + .hover {
+  transform: translateX(0);
+}
+section:nth-child(4) a:active {
+  color: var(--orange);
+}
+section:nth-child(4) a:active + .hover {
+  background-color: var(--yellow);
+}
+section:nth-child(4) .big {
+  font-size: 1.8rem;
+}
+section:nth-child(4) .medium {
+  font-size: 1.4rem;
+}
+section:nth-child(4) .prices p {
+  text-align: center;
+}
+section:nth-child(4) .prices p:not(:first-child) {
+  margin-top: 20px;
 }
 
 section:nth-child(5) {

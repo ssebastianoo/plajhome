@@ -1,9 +1,127 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Intro from "../components/Intro.astro";
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import sanMarco from '../assets/san marco.png';
+import Nav from '../components/Nav.astro';
+import Prices from '../components/Prices.astro';
 ---
 
-<Intro />
-<Layout title="PlajHome">
-    Luxury Open Space 11th floor 180° Venice view. Enjoy your holiday in Venice, live your confort.
+<Layout title='PlajHome'>
+  <main>
+    <div class='container'>
+      <Nav />
+      <h1>plajhome</h1>
+      <h2>stile italiano</h2>
+      <p class='text'>
+        Luxury Open Space 11th floor 180° Venice view. Enjoy your holiday in
+        Venice, live your confort.
+      </p>
+      <Prices />
+    </div>
+    <div class='image'>
+      <Image src={sanMarco} alt='A drawing of the San Marco tower' />
+    </div>
+  </main>
 </Layout>
+
+<style>
+  h1 {
+    font-size: 75px;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 30px;
+    letter-spacing: 12px;
+    margin-top: 0;
+  }
+
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 0 60px;
+  }
+
+  .text {
+    margin: 20px 0;
+  }
+
+  .image {
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+
+    img {
+      height: 80%;
+      width: auto;
+      transition-duration: 0.2s;
+
+      &:hover {
+        filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.2));
+      }
+    }
+  }
+
+  .container {
+    padding-right: 80px;
+    max-width: 346px;
+  }
+
+  .prices {
+    a {
+      text-decoration: none;
+      color: unset;
+      background-color: #925f4d;
+      padding: 5px;
+      border-radius: 4px;
+      display: inline-block;
+      transition-duration: 0.2s;
+
+      &:hover {
+        box-shadow: 2px 2px #52382f;
+        transform: translate(-2px, -2px);
+      }
+
+      &:active {
+        box-shadow: none;
+        transform: none;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    main {
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 10px;
+      padding: 0;
+    }
+
+    .container {
+      padding-right: 0;
+      display: flex;
+      padding: 20px 20px 0;
+      flex-direction: column;
+    }
+
+    .image {
+      height: 52%;
+
+      img {
+        height: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    h1 {
+      font-size: 60px;
+    }
+
+    h2 {
+      letter-spacing: 7px;
+    }
+  }
+</style>

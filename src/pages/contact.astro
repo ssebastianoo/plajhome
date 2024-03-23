@@ -1,9 +1,84 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Prices from '../components/Prices.astro';
 ---
 
-<Layout title="contact" image="/venice/VFL06411.webp">
-    email: <a href="mailto:jureplaj@gmail.com">jureplaj@gmail.com</a>
-    <br /><br />
-    mob: +39 3662551394
+<Layout title='Plajhome'>
+  <main>
+    <div class='container'>
+      <Nav />
+      <h1>contact</h1>
+      <p class='text'>
+        email: <a href='mailto:jureplaj@gmail.com'>jureplaj@gmail.com</a><br
+        /><br />mob: <a href='tel:+393662551394'>+393662551394</a>
+      </p>
+      <Prices />
+    </div>
+    <div class='image'>
+      <img
+        src='/pics/photo_2024-03-17_13-48-25.jpg'
+        alt='Marilyn Monroe'
+        width='300'
+      />
+    </div>
+  </main>
 </Layout>
+
+<style>
+  h1 {
+    font-size: 75px;
+    margin: 0;
+    letter-spacing: 8px;
+  }
+
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 0 60px;
+  }
+
+  .text {
+    margin: 20px 0;
+  }
+
+  .container {
+    padding-right: 80px;
+    max-width: 346px;
+  }
+
+  .image img {
+    border-radius: 5px;
+  }
+
+  @media (max-width: 768px) {
+    main {
+      flex-direction: column;
+      gap: 30px;
+      padding: 0;
+    }
+
+    .container {
+      padding-right: 0;
+      display: flex;
+      padding: 20px 20px 0;
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 400px) {
+    h1 {
+      font-size: 75px;
+      margin: 0;
+      letter-spacing: 4px;
+    }
+  }
+
+  @media (max-height: 700px) {
+    .image img {
+      width: 200px;
+    }
+  }
+</style>

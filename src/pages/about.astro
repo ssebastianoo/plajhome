@@ -1,23 +1,226 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Prices from '../components/Prices.astro';
 ---
 
-<Layout
-    title="about"
-    image="/venice/IMG_0228.webp"
-    map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.0969231809718!2d12.241539316253913!3d45.48799293987526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477eb4167409ae9b%3A0xeee001bfc77b5292!2sVia%20Leonida%20Bissolati%2C%206%2C%2030172%20Venezia%20VE!5e0!3m2!1sit!2sit!4v1653422934269!5m2!1sit!2sit"
->
-    Rooms: <b>2</b>
-    <br />
-    Beds: <b>3</b>
-    <br />
-    Sofa Beds: <b>1</b>
-    <br />
-    Kids Beds: <b>1</b>
-    <br /><br />
-    Bathroom 1: <b>Shower</b>
-    <br />
-    Bathroom 2: <b>Double sink and bath</b>
-    <br /><br />
-    Kitchen: <b>10 seats on modern and minimalist design</b>
+<Layout title='PlajHome'>
+  <main>
+    <div class='container'>
+      <Nav />
+      <h1>about</h1>
+      <p class='text'>
+        Rooms: 2<br />
+        Beds: 3<br />
+        Kids Beds: 1<br /><br />
+        Bathroom 1: Shower<br />
+        Bathroom 2: Double sink and bath<br />
+        Kitchen: 10 seats on modern and minimalist design
+      </p>
+      <Prices />
+    </div>
+    <div class='images-container'>
+      <div class='fade-out'></div>
+      <div class='images' id='images'>
+        <img
+          src='/pics/photo_2024-03-17_13-34-35.jpg'
+          alt='Picture of the house interior'
+        />
+        <img
+          src='/pics/photo_2024-03-17_13-47-50.jpg'
+          alt='Picture of the house interior'
+        />
+        <img
+          src='/pics/photo_2024-03-17_13-47-53.jpg'
+          alt='Picture of the house interior'
+        />
+        <img
+          src='/pics/photo_2024-03-17_13-47-56.jpg'
+          alt='Picture of the house interior'
+        />
+        <img
+          src='/pics/photo_2024-03-17_13-47-58.jpg'
+          alt='Picture of the house interior'
+        />
+        <img
+          src='/pics/photo_2024-03-17_13-48-01.jpg'
+          alt='Picture of the house interior'
+        />
+        <img
+          src='/pics/photo_2024-03-17_13-48-04.jpg'
+          alt='Picture of the house interior'
+        />
+        <img
+          src='/pics/photo_2024-03-17_13-48-07.jpg'
+          alt='Picture of the house interior'
+        />
+        <img
+          src='/pics/photo_2024-03-17_13-34-35.jpg'
+          alt='Picture of the house interior'
+        />
+        <img
+          src='/pics/photo_2024-03-17_13-47-50.jpg'
+          alt='Picture of the house interior'
+        />
+        <img
+          src='/pics/photo_2024-03-17_13-47-53.jpg'
+          alt='Picture of the house interior'
+        />
+        <img
+          src='/pics/photo_2024-03-17_13-47-56.jpg'
+          alt='Picture of the house interior'
+        />
+        <img
+          src='/pics/photo_2024-03-17_13-47-58.jpg'
+          alt='Picture of the house interior'
+        />
+        <img
+          src='/pics/photo_2024-03-17_13-48-01.jpg'
+          alt='Picture of the house interior'
+        />
+        <img
+          src='/pics/photo_2024-03-17_13-48-04.jpg'
+          alt='Picture of the house interior'
+        />
+        <img
+          src='/pics/photo_2024-03-17_13-48-07.jpg'
+          alt='Picture of the house interior'
+        />
+      </div>
+    </div>
+  </main>
 </Layout>
+<style>
+  h1 {
+    font-size: 75px;
+    margin: 0;
+    letter-spacing: 29px;
+  }
+
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 0 60px;
+  }
+
+  .text {
+    margin: 20px 0;
+  }
+
+  @keyframes bannermove {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(0, -50%);
+    }
+  }
+
+  .images-container {
+    height: 100%;
+    max-height: 400px;
+    width: 300px;
+    position: relative;
+    overflow: hidden;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 5%;
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0),
+        rgba(148, 196, 211, 1)
+      );
+    }
+
+    .fade-out {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5%;
+      z-index: 1;
+      background: linear-gradient(
+        to bottom,
+        rgba(148, 196, 211, 1),
+        rgba(255, 255, 255, 0)
+      );
+    }
+
+    .images {
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      overflow: hidden;
+      white-space: nowrap;
+      animation: bannermove 15s linear infinite;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .container {
+    padding-right: 80px;
+    max-width: 346px;
+  }
+
+  .prices {
+    a {
+      text-decoration: none;
+      color: unset;
+      background-color: #925f4d;
+      padding: 5px;
+      border-radius: 4px;
+      display: inline-block;
+      transition-duration: 0.2s;
+
+      &:hover {
+        box-shadow: 2px 2px #52382f;
+        transform: translate(-2px, -2px);
+      }
+
+      &:active {
+        box-shadow: none;
+        transform: none;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    main {
+      flex-direction: column;
+      gap: 30px;
+      padding: 0;
+    }
+
+    .container {
+      padding-right: 0;
+      display: flex;
+      padding: 20px 20px 0;
+      flex-direction: column;
+    }
+
+    .images-container {
+      height: 300px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    h1 {
+      font-size: 75px;
+      margin: 0;
+      letter-spacing: 13px;
+    }
+  }
+</style>
